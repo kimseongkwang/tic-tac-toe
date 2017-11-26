@@ -12,10 +12,38 @@ def checked(i) :
       if player == "X" :
             player = "O"
             button["bg"] = "yellow"
+            result()
       else :
             player = "X"
             button["bg"] = "lightgreen"
+            result()
 
+def result():
+      if list[0]["text"]==list[1]["text"]==list[2]["text"] != "     ":
+            win()
+      elif list[0]["text"]==list[3]["text"]==list[6]["text"] != "     ":
+            win()
+      elif list[0]["text"]==list[4]["text"]==list[8]["text"] != "     ":
+            win()
+      elif list[1]["text"]==list[4]["text"]==list[7]["text"] != "     ":
+            win()
+      elif list[2]["text"]==list[4]["text"]==list[6]["text"] != "     ":
+            win()
+      elif list[2]["text"]==list[5]["text"]==list[8]["text"] != "     ":
+            win()
+      elif list[3]["text"]==list[4]["text"]==list[5]["text"] != "     ":
+            win()
+      elif list[6]["text"]==list[7]["text"]==list[8]["text"] != "     ":
+            win()
+
+def win():
+      if player == "X":
+            msg = Message(window, text =" O player is winner")
+            msg.grid(row=3, column=3)
+      else :
+            msg = Message(window, text =" X player is winner")
+            msg.grid(row=3, column=3)
+            
 window = Tk()
 player = "X"
 list= []
